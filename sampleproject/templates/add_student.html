@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+    <br/><br/>
+    <center>
+        <form action="{% url 'addStudent' %}" method="POST">
+             {% csrf_token %}
+            <b>Student Name:</b>
+            <input type="text" name="sname"/>
+            <br/>
+            <b>Student Course:</b>
+            <input type="text" name="course"/>
+            <br/>
+            <b>Course Fees:</b>
+            <input type="text" name="fees"/>
+            <br><br/>
+            <input type="submit" value="ADD"/>
+        </form>
+    </center>
+
+    {% if saved %}
+        <h3>Record Saved Successfully</h3>
+    {% endif %}
+{% endblock%}
